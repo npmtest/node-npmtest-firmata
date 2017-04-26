@@ -10,7 +10,7 @@
 |--:|:--|
 | coverage : | [![istanbul-coverage](https://npmtest.github.io/node-npmtest-firmata/build/coverage.badge.svg)](https://npmtest.github.io/node-npmtest-firmata/build/coverage.html/index.html)|
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-firmata/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-firmata/build/test-report.html)|
-| build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-firmata/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-firmata/tree/gh-pages/build)|
+| test-server-github : | [![github.com test-server](https://npmtest.github.io/node-npmtest-firmata/GitHub-Mark-32px.png)](https://npmtest.github.io/node-npmtest-firmata/build/app/index.html) | | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-firmata/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-firmata/tree/gh-pages/build)|
 
 - [https://npmtest.github.io/node-npmtest-firmata/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-firmata/build/coverage.html/index.html)
 
@@ -35,20 +35,21 @@
 ```json
 
 {
-    "name": "firmata",
-    "description": "Firmata protocol implementation for programmatic interaction with Arduino and Arduino compatible development boards.",
-    "version": "0.16.0",
-    "author": "Julian Gautier",
-    "license": "MIT",
-    "homepage": "http://www.github.com/firmata/firmata.js",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/firmata/firmata.js.git"
+    "author": {
+        "name": "Julian Gautier"
     },
-    "main": "lib/firmata",
     "bin": {
         "firmata": "./repl.js"
     },
+    "bugs": {
+        "url": "https://github.com/firmata/firmata.js/issues"
+    },
+    "dependencies": {
+        "browser-serialport": "latest",
+        "es6-shim": "latest",
+        "serialport": "^4.0.0"
+    },
+    "description": "Firmata protocol implementation for programmatic interaction with Arduino and Arduino compatible development boards.",
     "devDependencies": {
         "browserify": "^13.0.0",
         "common-tags": "^1.4.0",
@@ -65,17 +66,36 @@
         "sinon": "~1.17.1",
         "webpack": "^1.12.14"
     },
-    "dependencies": {
-        "browser-serialport": "latest",
-        "es6-shim": "latest",
-        "serialport": "^4.0.0"
+    "directories": {},
+    "dist": {
+        "shasum": "6f2a759b1a98de234ced010fa3d4d9534d62b2e7",
+        "tarball": "https://registry.npmjs.org/firmata/-/firmata-0.16.0.tgz"
+    },
+    "gitHead": "f5215d29626828ce16cbfec6fd3cc81d3ebb8623",
+    "homepage": "http://www.github.com/firmata/firmata.js",
+    "license": "MIT",
+    "main": "lib/firmata",
+    "maintainers": [
+        {
+            "name": "jgautier"
+        },
+        {
+            "name": "rwaldron"
+        }
+    ],
+    "name": "firmata",
+    "optionalDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/firmata/firmata.js.git"
     },
     "scripts": {
-        "test": "grunt",
         "attempt-timeout": "node examples/test-i2c-read.js && node examples/test-i2c-read.js && node examples/test-analog-read.js && node examples/test-analog-read.js && node examples/test-serial-read.js && node examples/test-serial-read.js",
-        "test-cover": "nyc grunt test",
-        "coveralls": "nyc --reporter=lcov grunt test && cat ./coverage/lcov.info | coveralls"
-    }
+        "coveralls": "nyc --reporter=lcov grunt test && cat ./coverage/lcov.info | coveralls",
+        "test": "grunt",
+        "test-cover": "nyc grunt test"
+    },
+    "version": "0.16.0"
 }
 ```
 
